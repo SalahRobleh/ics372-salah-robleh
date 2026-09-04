@@ -7,8 +7,8 @@
 
 4.Another core entitiy to the system is the order themselves where they have unique idenitifer, list of menu items, current runnning cost of all menu items, order status. The order entity doesn't really have operations I believe it should just be a data class and another entity handles using the order class to add new menu items or remove new menu items change their status along with the option to completely void the order.
 
-5.Last core entity is the menu item where it's core data involves a unqiue identifier, list of ingredients with their units, status as a menu items. And Once again I think this is primarily a data class with no operations except for modifiying its list of ingredients with their amount used aswell.
-
+5.Last core entity is the menu item where it's core data involves a unqiue identifier, list of ingredients with their units, status as a menu items. And Once again I think this is primarily a data class with no operations except for modifiying its list of ingredients with their amount used aswell.s
+s
 
 ```mermaid
 classDiagram
