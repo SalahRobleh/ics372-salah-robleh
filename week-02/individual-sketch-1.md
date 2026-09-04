@@ -1,4 +1,13 @@
-## Thoughts
+# Individual Sketch — Week [2] Round [1]
+**Student:** [Your Name]
+**Date:** [Date]
+
+---
+
+## My Answer
+
+*Respond directly to the prompt. Write in plain sentences — no need to be formal. You have 12 minutes total, so think first, then write.*
+
 1.Customers are the first core entity I can think of where its main data involves having a unique id, name identifier,and a list of active orders. Customers should be able to browse a menu, select menu items, customize menu items, add menu items to their orders, remove menu items from their orders, and confirm and place order.
 
 2.Employees are the next core entity where their data involves a unique identifier, name, working status, login information for their work view, and I can't really think about anything else for data that is that important. For operations employees should be able to view a list of pending orders, start working on the next pending order, and mark pending orders as complete.
@@ -7,8 +16,14 @@
 
 4.Another core entitiy to the system is the order themselves where they have unique idenitifer, list of menu items, current runnning cost of all menu items, order status. The order entity doesn't really have operations I believe it should just be a data class and another entity handles using the order class to add new menu items or remove new menu items change their status along with the option to completely void the order.
 
-5.Last core entity is the menu item where it's core data involves a unqiue identifier, list of ingredients with their units, status as a menu items. And Once again I think this is primarily a data class with no operations except for modifiying its list of ingredients with their amount used aswell.s
-s
+5.Last core entity is the menu item where it's core data involves a unqiue identifier, list of ingredients with their units, status as a menu items. And Once again I think this is primarily a data class with no operations except for modifiying its list of ingredients with their amount used aswell.
+
+
+---
+
+## Diagram
+
+*Include your Mermaid diagram below. If the prompt doesn't ask for a diagram, delete this section.*
 
 ```mermaid
 classDiagram
@@ -59,4 +74,19 @@ classDiagram
         -String: orderStatus
     }
 ```
+
+---
+
+## What I'm Not Sure About
+
+*One or two sentences. What feels uncertain or wrong about what you just produced?*
+
+[I wasn't sure if I was going too far too add methods to data classes that souldn't belong with data classes. For example, employee if we should give them the right to start the next order and how would we start the next order? Wouldn't this class now require a new field given all submitted orders?]
+
+---
+
+**Commit this file before group discussion begins.**
+
+
+
     
