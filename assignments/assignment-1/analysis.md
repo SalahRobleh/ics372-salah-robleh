@@ -27,51 +27,72 @@
 
 - Room Entity
   -  This is a room that is reservable to guests
-  - This entity stores information about the nightly rate, a unique identifier tha separates itself from other rooms that is not its number, a reality represented room number, a type of room it is, it's current status, and number of beds
-  -  Room is a entity because it holds information that is closely related with itself and is not just a room and it's price but also holds information about it state.
+  - This entity stores information about the nightly rate, room number, a type of room it is, it's current status, and number of beds
+  -  Room is a entity because each room has its own identity that remains the same even when its attributes change.
 - Guest Entity
   - This is a guest of the boutique hotel
-  - the guest knows it's name, could give a phone number and/or email, preffered payment method, and number of occupied party under them.
-  - The guest entity is definitely an entity due to how strong of a identity it owns for iteself and can be inquired upon for it's current information
+  - the guest entity has a name, A phone number, and  email. 
+  - The guest entity is definitely an entity that has a identity of its own along with having the ability to be descriable using the unique attributes attatched to each instance of iteself.
 - Reservation Entity
   - this is a reservation for a room in the boutique hotel
-  - the reservation holds information for the room id, the date it was reserved, the reserved check in date, the planned check out date, the guest account id, reservation status, and preffered payment method.
-  - I believe the reservation is a entity because of it's strong identity unique to itself along with having relationships with the guest and room entity.
+  - the reservation holds the planned check in date, the date the reservation was made, the planned check out date, the planned stay duration in days, reservation status, party size, and preffered payment method.
+  - I believe the reservation is an entity with its own identity while changeable remains the same idenity of itself.
 - Receptionist Enity
   - this is a receptionist of the boutique hotel 
-  - the entity has information about itself such as name, unique identifier, working location, and auth such as username and password.
-  - I believe this is a necessary entity as the receptionist is the primary actor with any software for the hotel and has a strong identity with it's information not belonging with any other entity.
-- Guest Account Entity
+  - the entity has information about itself such as name, Username, and Password
+  - I believe this is an entity where each instance has its own identy that stay the same despite attribute changes.
+- Stay Entity
+  - This entity is the active stay the a guest checked in would have
+  - this entity holds information about room number, begin date, end date, party size, and stay status
+  - The stay entity has a strong identity staying the same even when attributes such as staying date changes.
 - Receipt Entity
-- Booking Log Record Entity
-- Transaction Entity
+  - This a receipt given to a guest once checking out
+  - paymentMethod, total amount for stay, receipt date, guestName
+  - The receipt enity is a entity becasue each receipt has its own identity even if its information were to change.
 
 ```mermaid
 classDiagram
   class Room {
-    -String name
+    -Name
+    -nightlyRate
+    -roomNumber
+    -status
+    -numberOfbed
   }
   class Guest {
-
+    -Name
+    -phoneNumber
+    -emailAddress
   }
   class Reservation {
-
+    -plannedCheckInDate
+    -reservationDate
+    -plannedStayDuration
+    -reservationStatus
+    -partySize
+    -prefferedPaymentMethod
   }
   class Receptionist {
-
+    -name
+    -username
+    -password
   }
-  class Guest Account  {
-
+  class Stay  {
+    -roomNumber
+    -beginDate
+    -endDate
+    -partySize
+    -stayStatus
+    -DaysStayed
   }
   class Receipt {
-
+    -totalAmount
+    -receiptDate
+    -paymentMethod
+    -GuestName
   }
-  class Booking Log Record  {
-
-  }
-  class Transaction {
-
-  }
-  Room "*" --* "0..*" Guest : occupied by
-  Loan "1" --> "1" Book : for
+  Room "*" --> "0..*" Guest : occupied by
+  Guest "*" *-- "0..*" Receipt : is given
+  Room "*" --> "0..*" Reservation : has a
+  Stay "*" --> "0..*" Guest : occupied by
 ```
